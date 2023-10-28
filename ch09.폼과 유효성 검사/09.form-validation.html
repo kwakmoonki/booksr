@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form::validation</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8 m-3">
+        <form method="get" action="receive.html">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="userId" name="userId">
+            <label for="userId">아이디</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="passwd" name="passwd">
+            <label for="passwd">비밀번호</label>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">로그인</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.forms[0].onsubmit = function (event) {
+      if (this.userId.value.length < 6) {
+        alert('6글자 이상의 ID를 입력하세요');
+        this.userId.focus();
+        event.preventDefault();
+      } else if ((this.passwd.value.length < 4) || isNaN(this.passwd.value)) {
+        alert('4글자 이상의 숫자로된 비밀번호를 입력하세요');
+        this.passwd.focus();
+        event.preventDefault();
+      }
+    }
+  </script>
+</body>
+</html>

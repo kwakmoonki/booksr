@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM::change</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <figure class="figure">
+          <img src="https://dummyimage.com/600x400/000/fff" class="figure-img img-fluid" alt="첫번째 이미지">
+          <figcaption class="figure-caption">이미지 설명#1</figcaption>
+        </figure>
+      </div>
+      <div class="col">
+        <figure class="figure">
+          <img src="https://dummyimage.com/600x400/bbb/000" class="figure-img img-fluid rounded" alt="두번째 이미지">
+          <figcaption class="figure-caption text-end">이미지 설명#2</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+  <script>
+    const myModal = new bootstrap.Modal('#myModal');
+    const figures = document.querySelectorAll('figure');
+    const modalBody = document.querySelector('#myModal .modal-body');
+
+    for (let figure of figures) {
+      figure.addEventListener('click', function() {
+        console.log(figure);
+        console.log(figure.outerHTML);
+        console.log(figure.innerHTML);
+        console.log(typeof figure, typeof figure.outerHTML,
+          typeof figure.innerHTML);
+
+        modalBody.innerHTML = figure.outerHTML;
+        myModal.show();
+      });
+    }
+  </script>
+</body>
+</html>

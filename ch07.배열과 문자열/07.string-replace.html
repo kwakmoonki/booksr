@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String::replace()</title>
+</head>
+<body>
+<script>
+  const myString = 'HELLO WORLD, Hello world, hello world';
+
+  console.log(myString);
+  console.log(myString.replace('HELLO', 'Hi!'));
+  console.log(myString.replace(/WORLD/, 'there'));
+  console.log(myString.replace(/world/g, 'there'));
+  console.log(myString.replace(/hello|world/gi, function(char) {
+    return char.toUpperCase();
+  }));
+</script>
+</body>
+</html>

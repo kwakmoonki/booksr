@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String::charAt() & indexOf()</title>
+</head>
+<body>
+<script>
+  const str = 'korea';
+
+  for (let char of str) {
+    //console.log(char);
+    console.log(str.indexOf(char), char);
+  }
+  
+  console.log('================');
+  console.log('str[2]: ', str[2]);
+  console.log('str[str.length - 1]: ', str[str.length - 1]);
+  console.log('str.charAt(2): ', str.charAt(2));
+  console.log("str.indexOf('r'): ", str.indexOf('r'));
+</script>
+</body>
+</html>

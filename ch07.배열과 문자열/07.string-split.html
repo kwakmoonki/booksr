@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String::split()</title>
+</head>
+<body>
+<script>
+  const txt = 'HTML, CSS, 자바스크립트';
+
+  console.log(txt.split(','));
+  console.log(txt.split(', '));
+  console.log(txt.split(', ', 1));
+  console.log(txt.split(', ', 0));
+  console.log(txt.split(''));
+  console.log(txt.split('').reverse().join(''));
+</script>
+</body>
+</html>

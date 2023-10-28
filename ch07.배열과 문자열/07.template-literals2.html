@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>template literals</title>
+</head>
+<body>
+<script>
+  let txt1 = '홍길동\n일지매\n전우치\n장길산';
+  let txt2 = '\
+    홍길동 \
+    일지매 \
+    전우치 \
+    장길산 \
+  ';
+  let txt3 = `
+    홍길동
+    일지매
+    전우치
+    장길산
+  `;
+
+  console.log(txt1);
+  console.log(txt2);
+  console.log(txt3);
+</script>
+</body>
+</html>

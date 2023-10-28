@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>destructuring assignment</title>
+</head>
+<body>
+  <script>
+    const casts = ['홍길동', '일지매', '임꺽정', '전우치'];
+
+    const [cast11, , , cast14] = casts;
+    console.log(cast11, cast14);
+
+    const [cast21, ...rest] = casts;
+    console.log(cast21, rest);
+
+    const [a, b, c] = '장길산';
+    console.log(a, b, c);
+
+    const { name, age } = { name: '전우치', age: 21 };
+    console.log(name, age);
+
+    /*
+    // 스프레드 연산자(Spread Operator)
+    const firstArray = [1, 2, 3];
+    const secondArray = [4, 5, 6];
+    const arrayCombined = [...firstArray, ...secondArray];
+    console.log(arrayCombined);
+
+    // 나머지 연산자(Rest Operator)
+    const myArray = [1, 2, 3, 4, 5, 6];
+    const [one, two, ...rest] = myArray;
+    console.log(one, two, rest);
+    */
+  </script>
+</body>
+</html>

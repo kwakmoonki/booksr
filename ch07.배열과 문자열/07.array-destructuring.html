@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>destructuring assignment</title>
+</head>
+<body>
+<script>
+  const casts = ['홍길동', '일지매', '임꺽정'];
+
+  // 배열값을 이용한 예전 방법 
+  const cast01 = casts[0]; // 홍길동
+  const cast02 = casts[1]; // 일지매
+  const cast03 = casts[2]; // 임꺽정
+
+  // 구조 분해 할당(Destructuring Assignment)
+  const [cast11, cast12, cast13] = casts;
+
+  console.log('old way', cast01, cast02, cast03);
+  console.log('destructuring', cast11, cast12, cast13);
+</script>
+</body>
+</html>

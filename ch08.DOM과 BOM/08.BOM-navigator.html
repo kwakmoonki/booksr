@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOM::location</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr class="table-dark">
+              <th>navigator</th>
+              <th>결과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>navigator.appCodeName</td>
+              <td id="appCodeName"></td>
+            </tr>
+            <tr>
+              <td>navigator.appName</td>
+              <td id="appName"></td>
+            </tr>
+            <tr>
+              <td>navigator.appVersion</td>
+              <td id="appVersion"></td>
+            </tr>
+            <tr>
+              <td>navigator.language</td>
+              <td id="language"></td>
+            </tr>
+            <tr>
+              <td>navigator.onLine</td>
+              <td id="onLine"></td>
+            </tr>
+            <tr>
+              <td>navigator.platform</td>
+              <td id="platform"></td>
+            </tr>
+            <tr>
+              <td>navigator.userAgent</td>
+              <td id="userAgent"></td>
+            </tr>
+            <tr>
+              <td>
+                <button type="button" class="btn btn-success btn-sm">geolocation</button>
+              </td>
+              <td id="geolocation"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('#appCodeName').innerText = navigator.appCodeName;
+    document.querySelector('#appName').innerText = navigator.appName;
+    document.querySelector('#appVersion').innerText = navigator.appVersion;
+    document.querySelector('#language').innerText = navigator.language;
+    document.querySelector('#onLine').innerText = navigator.onLine;
+    document.querySelector('#platform').innerText = navigator.platform;
+    document.querySelector('#userAgent').innerText = navigator.userAgent;
+
+    document.querySelector('.btn-success').onclick = function() {
+      let geoText = document.querySelector('#geolocation');
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          console.log(position);
+          let lat = position.coords.latitude;
+          let lng = position.coords.longitude;
+          geoText.innerText = `위도 ${lat}, 경도 ${lng}`;
+        });
+      } else {
+        geoText.innerText = '지원되지 않는 브라우저입니다.';
+      }
+    }
+  </script>
+</body>
+</html>

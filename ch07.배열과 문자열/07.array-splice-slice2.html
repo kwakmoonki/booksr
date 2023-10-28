@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array::splice() & slice()</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="form-check">
+        <label><input class="form-check-input" type="checkbox" name="city" value="paris">파리</label>
+      </div>
+      <div class="form-check">
+        <label><input class="form-check-input" type="checkbox" name="city" value="sydney">시드니</label>
+      </div>
+      <div class="form-check">
+        <label><input class="form-check-input" type="checkbox" name="city" value="seoul">서울</label>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<script>
+  let cities = [];
+  const checkboxes = document.querySelectorAll('[name="city"]');
+  for (let checkbox of checkboxes) {
+    checkbox.onchange = () => {
+      if (checkbox.checked) {
+        cities.push(checkbox.value);
+      } else {
+        let index = cities.indexOf(checkbox.value);
+        if(index !== -1) {
+          cities.splice(index, 1);
+        }
+      }
+      setListGroup();
+    }
+  }
+
+  function setListGroup() {
+    let lists = [];
+    for (let city of cities) {
+      lists.push('<li class="list-group-item">' + city + '</li>');
+    }
+    const target = document.querySelector('.col:nth-of-type(2)');
+    target.innerHTML = '<ul class="list-group">' + lists.join('') + '</ul>';
+  }
+</script>
+</body>
+</html>

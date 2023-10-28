@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array::concat()</title>
+</head>
+<body>
+<script>
+  const pets = ['개', '고양이'];
+  const birds = ['앵무새', '꾀꼬리'];
+  const beasts = ['사자', '호랑이'];
+
+  const animals = pets.concat(birds, beasts);
+
+  console.log(animals.valueOf());
+  console.log(animals.join(''));
+  console.log(animals.toString());
+  console.log(animals);
+</script>
+</body>
+</html>

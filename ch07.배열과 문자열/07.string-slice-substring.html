@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String::slice() & substring()</title>
+</head>
+<body>
+<script>
+  const txt = 'HTML, CSS, 자바스크립트';
+
+  console.log(txt.slice(1, 7));
+  console.log(txt.slice(7));
+  console.log(txt.slice(-6));
+  console.log(txt.slice(-6, -2));
+  console.log('===============');
+  console.log(txt.substring(1, 7));
+  console.log(txt.substring(7, 1));
+  console.log(txt.substring(7));
+  console.log(txt.substring(-7));
+  console.log('===============');
+  console.log(txt.substr(1, 3));
+  console.log(txt.substr(-6));
+  console.log(txt.substr(-6, 4));
+</script>
+</body>
+</html>

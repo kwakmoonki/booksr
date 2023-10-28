@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>spread operator</title>
+</head>
+<body>
+<script>
+  const str = 'korea';
+
+  for (let char of str) {
+    console.log(char, str.indexOf(char));
+  }
+
+  console.log([...str]);
+
+  [...str].forEach(function (item, index) {
+    console.log(item, index);
+  });
+
+  console.log(Array.from(str));
+</script>
+</body>
+</html>

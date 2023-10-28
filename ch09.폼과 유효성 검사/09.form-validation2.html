@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form::validation</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 m-3">
+      <form method="get" action="receive.html">
+        <div class="input-group form-floating mb-3">
+          <input type="text" class="form-control" id="userId" name="userId">
+          <label for="userId">아이디</label>
+          <button type="button" id="checkId" class="btn btn-secondary">중복확인</button>
+        </div>
+
+        <input type="hidden" name="isCheck" value="0">
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-primary">로그인</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('checkId').onclick = function () {
+    // 아이디 중복 확인 프로세스의 결과에 따라 값 설정 
+    document.forms[0]['isCheck'].value = 1;
+  }
+
+  document.forms[0].onsubmit = function (event) {
+    let isCheckId = parseInt(this.isCheck.value);
+
+    if (this.userId.value.length < 6) {
+      alert('6글자 이상의 ID를 입력하세요');
+      this.userId.focus();
+      event.preventDefault();
+    } else if (!isCheckId) {
+      alert('아이디의 중복확인이 필요합니다.');
+      event.preventDefault();
+    }
+  }
+</script>
+</body>
+</html>

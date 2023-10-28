@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array::concat()</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-success">sort()</button>
+        <button type="button" class="btn btn-primary">초기화</button>
+        <button type="button" class="btn btn-danger">reverse()</button>
+      </div>
+    </div>
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item">홍길동(1)</li>
+        <li class="list-group-item">일지매(2)</li>
+        <li class="list-group-item">임꺽정(3)</li>
+        <li class="list-group-item">전우치(4)</li>
+        <li class="list-group-item">장길산(5)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const listArray = [];
+  const lists = document.querySelectorAll('.list-group-item');
+  for (let list of lists) {
+    listArray.push(list.innerText);
+  }
+
+  document.querySelector('.btn-success').addEventListener('click', function() {
+    listArray.sort();
+    setListGroup();
+  });
+
+  document.querySelector('.btn-primary').addEventListener('click', function() {
+    location.reload(); // 초기화
+  });
+
+  document.querySelector('.btn-danger').addEventListener('click', function() {
+    listArray.reverse();
+    setListGroup();
+  });
+
+  function setListGroup() {
+    let tempArray = [];
+    for (let list of listArray) {
+      tempArray.push('<li class="list-group-item">' + list + '</li>');
+    }
+    document.querySelector('.list-group').innerHTML = tempArray.join('');
+  }
+</script>
+</body>
+</html>

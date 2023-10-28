@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM::change</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <style>
+    li.list-group-item {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <ul class="list-group">
+          <li class="list-group-item active">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lists = document.querySelectorAll('.list-group-item');
+
+    for (let list of lists) {
+      list.onclick = function() {
+        console.log(list.className);
+        if (list.className == 'list-group-item') {
+          resetLists();
+          list.setAttribute('class', 'list-group-item active');
+        }
+      }
+    }
+
+    function resetLists() {
+      for (let list of lists) {
+        list.setAttribute('class', 'list-group-item');
+      }
+    }
+  </script>
+</body>
+</html>

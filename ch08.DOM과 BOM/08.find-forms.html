@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM::Find forms</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="input-group mb-3">
+        <input type="number" class="form-control" name="num" min="1" max="3" placeholder="1 ~ 3 값 입력">
+        <button class="btn btn-outline-secondary" type="button">선택</button>
+      </div>
+      <div class="col-4">
+        <form>
+          <input type="text" class="form-control" name="user" placeholder="1 번째 form">
+        </form>
+      </div>
+      <div class="col-4">
+        <form name="myForm">
+          <input type="text" class="form-control" name="user" placeholder="2 번째 form">
+        </form>
+      </div>
+      <div class="col-4">
+        <form name="yourForm">
+          <input type="text" class="form-control" name="user" placeholder="3 번째 form">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn').onclick = function() {
+      let num = document.querySelector('input[name="num"]').value;
+
+      switch(parseInt(num)) {
+        case 1:
+          document.forms[0].user.focus();
+          break;
+        case 2:
+          document.forms['myForm'].user.focus();
+          break;
+        case 3:
+          document.yourForm.user.focus();
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

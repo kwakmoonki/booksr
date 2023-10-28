@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form::onsubmit</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8 m-3">
+        <form name="authForm" method="get" action="receive.html">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="userId" name="userId">
+            <label for="userId">아이디</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="passwd" name="passwd">
+            <label for="passwd">비밀번호</label>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">로그인</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // const myForm = document.forms[0];
+    // const myForm = document.forms['authForm'];
+    // const myForm = document.authForm;
+    const myForm = document.querySelector('form');
+
+    // 방법 #1
+    myForm.onsubmit = function (event) {
+      event.preventDefault();
+      console.log('*');
+    }
+
+    // 방법 #2
+    // myForm.addEventListener('submit', function (event) {
+    //   event.preventDefault();
+    //   console.log('**');
+    // });
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String::split()</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <input type="search" class="form-control" name="input" placeholder="아래 문장 입력 후 엔터">
+        <input type="text" class="form-control" name="answer" disabled value="나의 살던 고향은 꽃피는 산골">
+        <div class="alert alert-dark" role="alert"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const inputBox = document.querySelector('input[name="input"]');
+    const answerBox = document.querySelector('input[name="answer"]');
+
+    const alertBox = document.querySelector('div.alert');
+
+    inputBox.onsearch = function() {
+      let inputArray = this.value.split(' ');
+      let answerArray = answerBox.value.split(' ');
+
+      let newArray = inputArray.map(function(item, index) {
+        if (item == answerArray[index]) {
+          return '<span class="bg-white">' + item + '</span>';
+        } else {
+          return '<span class="bg-danger text-white">' + item + '</span>';
+        }
+      });
+
+      alertBox.innerHTML = newArray.join(' ');
+    }
+  </script>
+</body>
+</html>

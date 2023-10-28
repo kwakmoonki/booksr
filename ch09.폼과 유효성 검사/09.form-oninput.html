@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form::oninput</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-7">
+        <input type="range" class="form-range" name="range" min="-180" max="180">
+        <hr>
+        <input type="text" readonly class="form-control-plaintext" name="rangeValue">
+      </div>
+      <div class="col-5">
+        <img src="https://dummyimage.com/400x400/000/fff" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var slider = document.querySelector('input[name="range"]');
+    var output = document.querySelector('input[name="rangeValue"]');
+    var img = document.querySelector('img');
+
+    output.value = slider.value;
+
+    slider.oninput = function() {
+      output.value = this.value;
+      img.style.transform = `rotate(${this.value}deg)`;
+    }
+  </script>
+</body>
+</html>

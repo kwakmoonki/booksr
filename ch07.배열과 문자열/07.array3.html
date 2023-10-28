@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+<body>
+<script>
+  const myObject = {
+    name: '홍길동',
+    age: 25,
+    myFunc1: function() {
+      alert('함수1');
+    },
+    myFunc2: function() {
+      return '함수2';
+    },
+    timingEvent: setTimeout(function() {
+      alert('setTimeout');
+    }, 1000)
+  }
+
+  console.log(typeof myObject);
+  console.log("myObject['name']", myObject['name']);
+  console.log("myObject['age']", myObject['age']);
+  console.log("myObject['myFunc1']", myObject['myFunc1']());
+  console.log("myObject['myFunc2']", myObject['myFunc2']());
+  console.log("myObject['timingEvent']", myObject['timingEvent']);
+  console.log('===========================');
+  console.log('myObject.name', myObject.name);
+  console.log('myObject.age', myObject.age);
+  console.log('myObject.myFunc1', myObject.myFunc1());
+  console.log('myObject.myFunc2', myObject.myFunc2());
+  console.log('myObject.timingEvent', myObject.timingEvent);
+</script>
+</body>
+</html>

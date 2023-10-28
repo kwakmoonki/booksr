@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM::change</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <img src="https://dummyimage.com/320x240/000/fff" class="img-fluid img-thumbnail" alt="첫번째 이미지">
+      </div>
+      <div class="col-4">
+        <img src="https://dummyimage.com/320x240/666/fff" class="img-fluid img-thumbnail" alt="두번째 이미지">
+      </div>
+      <div class="col-4">
+        <img src="https://dummyimage.com/320x240/bbb/000" class="img-fluid img-thumbnail" alt="세번째 이미지">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const things = ['car', 'dog', 'cat', 'mountain', 'sea'];
+
+    for (let img of document.images) {
+      img.onclick = function() {
+        let index = Math.floor(Math.random() * things.length);
+        let url = 'https://loremflickr.com/320/240/' + things[index];
+
+        img.setAttribute('src', url);
+        img.src = url;
+
+        console.log(url);
+      }
+    }
+  </script>
+</body>
+</html>

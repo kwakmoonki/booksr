@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String::include() & startsWith() & endsWith()</title>
+</head>
+<body>
+<script>
+  let poem = `
+    그 꽃 (고은)
+    
+    내려갈 때 보았네
+    올라갈 때 보지못한
+    그 꽃
+  `;
+
+  console.log(poem.includes('고은'));
+  console.log(poem.startsWith('그 꽃'));
+  console.log(poem.endsWith('그 꽃'));
+  console.log(poem);
+
+  poem = poem.trim();
+  
+  console.log(poem);
+  console.log(poem.startsWith('그 꽃'));
+  console.log(poem.endsWith('그 꽃'));
+</script>
+</body>
+</html>

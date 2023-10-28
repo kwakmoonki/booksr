@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM::remove#1</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger">새로고침</button>
+          <button type="button" class="btn btn-warning">3번째 삭제</button>
+          <button type="button" class="btn btn-success">계속 삭제</button>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">1 번째</li>
+          <li class="list-group-item">2 번째</li>
+          <li class="list-group-item">3 번째</li>
+          <li class="list-group-item">4 번째</li>
+          <li class="list-group-item">5 번째</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-danger').onclick = function() {
+      location.reload();
+    }
+
+    const ul = document.querySelector('.list-group');
+
+    document.querySelector('.btn-warning').onclick = function() {
+      const target = document.querySelectorAll('li')[2];
+      ul.removeChild(target);
+    }
+
+    document.querySelector('.btn-success').onclick = function() {
+      console.log(ul.children);
+
+      if (ul.children.length) {
+        ul.removeChild(ul.children[0]);
+      }
+    }
+  </script>
+</body>
+</html>
