@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-4">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">AJAX 활용</button>
+        </div>
+      </div>
+      <div class="col-8" id="pocket"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-primary').onclick = function () {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', '10.ajax-basic-response.html');
+      xhr.send();
+
+      xhr.onprogress = function (event) {
+        console.log(event);
+        if (event.lengthComputable) {
+          console.log(`Received ${event.loaded} of ${event.total} bytes`);
+        } else {
+          console.log(`Received ${event.loaded} bytes`);
+        }
+      }
+
+      xhr.onload = function () {
+        console.log(this);
+        if(this.status != 200) {
+          console.log(`Error ${this.status} : ${this.statusText}`);
+        } else {
+          document.querySelector('#pocket').innerHTML = this.responseText;
+        }
+      }
+
+      xhr.onerror = function () {
+        alert('AJAX 오류 발생');
+      }
+    }
+  </script>
+</body>
+</html>

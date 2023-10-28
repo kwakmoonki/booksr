@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오 지도</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[JavaScript 키]"></script>
+<script>
+  const container = document.getElementById('map');
+  const options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  };
+
+  const map = new kakao.maps.Map(container, options);
+
+  let infowindow = new kakao.maps.InfoWindow({
+    map: map,
+    position: map.getCenter(),
+    content: '<div class="bg-primary text-white" style="padding:5px;width:150px">인포윈도우</div>',
+    removable: true
+  });
+</script>
+</body>
+</html>

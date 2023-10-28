@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Traversing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="btn-group my-3" role="group">
+        <button type="button" class="btn btn-primary">.find()</button>
+        <button type="button" class="btn btn-success">.filter(s)</button>
+        <button type="button" class="btn btn-warning">.filter(f)</button>
+        <button type="button" class="btn btn-danger">.children()</button>
+        <button type="button" class="btn btn-secondary">화면초기화</button>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item active">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item active">And a fifth one</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $('.btn-primary').click(function() {
+    $('ul.list-group').find('li').eq(2).addClass('active');
+  });
+
+  $('.btn-success').click(function() {
+    $('li').filter('.active').removeClass('active');
+  });
+
+  $('.btn-warning').click(function() {
+    $('li').filter(function (index) {
+      return index % 2 === 1;
+    }).addClass('active');
+  });
+
+  $('.btn-danger').click(function() {
+    $('ul.list-group').children('.active').removeClass('active');
+  });
+
+  $('.btn-secondary').click(function() {
+    location.reload(true);
+  });
+</script>
+</body>
+</html>

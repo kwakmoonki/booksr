@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매시업::TourAPI+카카오지도</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 pt-3" id="pocket">
+    </div>
+    <div class="col-8" id="map"></div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[JavaScript 키]"></script>
+<script>
+  const container = document.getElementById('map');
+  const options = {
+    center: new kakao.maps.LatLng(37.566833, 126.978641),
+    level: 6
+  };
+
+  const map = new kakao.maps.Map(container, options);
+
+  const circle = new kakao.maps.Circle({
+    map: map,
+    center: map.getCenter(),
+    radius: 1000,
+    fillOpacity: 0.2
+  });
+
+  kakao.maps.event.addListener(map, 'idle', function() {
+    let latlng = map.getCenter();
+
+    circle.setPosition(latlng);
+    fetchTourList(latlng.getLat(), latlng.getLng());
+  });
+
+  let markers = [];
+  const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+  function fetchTourList(lat, lng) {
+    $.get('http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList', {
+      ServiceKey: '일반인증키(Decoding)',
+      radius: 1000,
+      mapX: lng,
+      mapY: lat,
+      MobileOS: 'ETC',
+      MobileApp: 'AppTesting'
+    }).done(function (data) {
+      removeMarker();
+
+      let items = $(data).find('item');
+      let rs = [];
+      $.each(items, function (k, v) {
+        let title = $(this).find('title').text();
+        let lat = $(this).find('mapy').text();
+        let lng = $(this).find('mapx').text();
+
+        let marker = new kakao.maps.Marker({
+          map: map,
+          position: new kakao.maps.LatLng(lat, lng)
+        });
+
+        markers.push(marker);
+        let idx = markers.indexOf(marker);
+
+        rs.push(`<li class="list-group-item" data-idx="${idx}">${title}</li>`);
+      });
+
+      $('#pocket').html(`<ul class="list-group">${rs.join('')}</ul>`);
+    });
+  }
+
+  $(document).on('click', '.list-group-item', function() {
+    $(this).addClass('active').siblings().removeClass('active');
+
+    let idx = $(this).data('idx');
+
+    infowindow.setContent($(this).text());
+    infowindow.open(map, markers[idx]);
+  });
+
+  function removeMarker() {
+    markers.forEach(function (marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+    $('#pocket').empty();
+  }
+</script>
+</body>
+</html>

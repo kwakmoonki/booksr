@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Traversing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="btn-group my-3" role="group">
+        <button type="button" class="btn btn-primary">.each()</button>
+        <button type="button" class="btn btn-success">$.each()</button>
+        <button type="button" class="btn btn-warning">.map()</button>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $('li.list-group-item').click(function() {
+    // $(this).addClass('active').siblings().removeClass('active');
+    $(this).siblings().removeClass('active').end().addClass('active');
+  });
+
+  $('.btn-primary').click(function() {
+    // $(선택자).each(함수);
+    $('li.list-group-item').each(function (index, element) {
+      console.log(index, element);
+      $(this).text(index + ' 번째');
+    });
+  });
+
+  $('.btn-success').click(function() {
+    // $.each(배열, 콜백);
+    const myArray = ['*', '**', '***', '****', '*****'];
+    $.each(myArray, function (index, value) {
+      $('li.list-group-item').eq(index).text(value);
+    });
+  });
+
+  $('.btn-warning').click(function() {
+    // $(선택자).map(콜백);
+    let lists = $('li.list-group-item').map(function (index, element) {
+      if (index % 2 === 1) {
+        console.log(index, element);
+        return $(element).text();
+      }
+    });
+    console.log(lists);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Traversing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  // $.ajax(요청시 할일).done(응답후 할일);
+  $.ajax({}).done(function (data) { });
+  /////////////////////////////////
+  $.ajax({
+    url: 'url',
+    method: 'GET|POST',
+    data: {
+      // 서버로 요청하는 변수쌍
+    },
+    dataType: 'xml|json|html'
+  }).done(function (data) {
+    // 서버의 응답 시 처리 과정
+  });
+
+  //////////////////////////////
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'url');
+  xhr.send();
+  xhr.onload = function() {
+    // 서버의 응답 시 처리 과정
+  }
+  //////////////////////////////
+  fetch('url')
+    .then(response => response.text())
+    .then(result => {
+      // 서버의 응답 시 처리 과정 (처리 성공)
+    })
+    .catch(error => {
+      // 서버의 응답 시 처리 과정 (처리 오류)
+    });
+</script>
+</body>
+</html>

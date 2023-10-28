@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX::Fetch API</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-4">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">AJAX 활용</button>
+        </div>
+      </div>
+      <div class="col-8" id="pocket"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-primary').onclick = function() {
+      fetch('10.ajax-xml.xml')
+        .then(response => response.text())
+        .then(result => {
+          console.log('[성공]', result);
+        })
+        .catch(error => {
+          console.error('[실패]', error);
+        });
+    }
+  </script>
+</body>
+</html>

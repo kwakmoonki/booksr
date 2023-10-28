@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매시업::TourAPI+카카오지도</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <input type="search" class="form-control my-3" name="query" placeholder="키워드 입력 후 엔터 (예. 강원)">
+      <div id="pocket"></div>
+    </div>
+    <div class="col-8"></div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $('input[name="query"]').keydown(function (event) {
+    if (event.keyCode == 13) {
+      fetchTourList($(this).val());
+    }
+  });
+
+  function fetchTourList(keyword) {
+    $.ajax({
+      url: 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword',
+      data: {
+        ServiceKey: '일반인증키(Decoding)',
+        keyword: keyword,
+        MobileOS: 'ETC',
+        MobileApp: 'AppTesting'
+      },
+      method: 'GET',
+      dataType: 'xml'
+    }).done(function (data) {
+      console.log(data);
+      let items = $(data).find('item');
+      let rs = [];
+      $.each(items, function (k, v) {
+        let title = $(this).find('title').text();
+        let lat = $(this).find('mapy').text();
+        let lng = $(this).find('mapx').text();
+
+        rs.push(`<li class="list-group-item" 
+          data-lat="${lat}" data-lng="${lng}">${title}</li>`);
+      });
+
+      $('#pocket').html(`<ul class="list-group">${rs.join('')}</ul>`);
+    });
+  }
+
+  $(document).on('click', '.list-group-item', function() {
+    $(this).addClass('active').siblings().removeClass('active');
+  });
+</script>
+</body>
+</html>

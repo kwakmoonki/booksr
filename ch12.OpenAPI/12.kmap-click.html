@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오 지도</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row my-3">
+        <label for="lat" class="col-sm-2 col-form-label">위도(lat)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lat" name="lat" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <label for="lng" class="col-sm-2 col-form-label">경도(lng)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lng" name="lng" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="col" id="map"></div>
+  </div>
+</div>
+
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[JavaScript 키]"></script>
+<script>
+  const container = document.getElementById('map');
+  const options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  };
+
+  const map = new kakao.maps.Map(container, options);
+
+  kakao.maps.event.addListener(map, 'click', function (event) {
+    console.log(event);
+    let latlng = event.latLng;
+
+    document.querySelector('input[name="lat"]').value = latlng.getLat();
+    document.querySelector('input[name="lng"]').value = latlng.getLng();
+  });
+</script>
+</body>
+</html>

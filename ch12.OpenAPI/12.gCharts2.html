@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Charts</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    #piechart {
+      min-height: 500px;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row my-3">
+    <div class="col-5">
+      <form>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="task" placeholder="Task">
+          <span class="input-group-text">::</span>
+          <input type="text" class="form-control" name="hours" placeholder="Hours per Day">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="task" placeholder="Task">
+          <span class="input-group-text">::</span>
+          <input type="text" class="form-control" name="hours" placeholder="Hours per Day">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="task" placeholder="Task">
+          <span class="input-group-text">::</span>
+          <input type="text" class="form-control" name="hours" placeholder="Hours per Day">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="task" placeholder="Task">
+          <span class="input-group-text">::</span>
+          <input type="text" class="form-control" name="hours" placeholder="Hours per Day">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="task" placeholder="Task">
+          <span class="input-group-text">::</span>
+          <input type="text" class="form-control" name="hours" placeholder="Hours per Day">
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto">
+          <button type="submit" class="btn btn-primary">파이차트 만들기</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-7" id="piechart"></div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', { 'packages': ['corechart'] });
+
+  document.querySelector('form').onsubmit = function (event) {
+    event.preventDefault();
+
+    let tempData = '';
+
+    const formData = Array.from(
+      new FormData(event.target),
+      function (inputs) {
+        // console.log(inputs);
+        if (inputs[0] == 'task') {
+          tempData = inputs[1];
+          console.log(`tempData = ${tempData}`);
+        } else {
+          return [tempData, parseInt(inputs[1])];
+        }
+      }
+    );
+
+    const formData2 = formData.filter(function (item) {
+      return item !== undefined;
+    });
+
+    console.log(formData, formData2);
+
+    drawChart(formData2);
+  };
+
+  function drawChart(dataSrc) {
+    dataSrc.unshift(['Task', 'Hours per Day']);
+
+    var data = google.visualization.arrayToDataTable(dataSrc);
+
+    var options = {
+      title: 'My Daily Activities'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+</body>
+</html>

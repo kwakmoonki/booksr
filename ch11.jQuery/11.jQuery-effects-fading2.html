@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Effects::Fading</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row my-3">
+    <div class="col">
+      <img id="img1" src="https://dummyimage.com/600x400/000/fff" class="img-fluid" alt="첫번째 이미지">
+    </div>
+    <div class="col">
+      <img id="img2" src="https://dummyimage.com/600x400/666/fff" class="img-fluid" alt="두번째 이미지">
+    </div>
+    <div class="col">
+      <img id="img3" src="https://dummyimage.com/600x400/ccc/fff" class="img-fluid" alt="세번째 이미지">
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  // .fadeTo(duration, opacity [, complete ])
+
+  $('#img1').click(function() {
+    $(this).fadeTo(1000, 0.5);
+  });
+
+  $('#img2').click(function() {
+    $(this).fadeTo(1000, 0.2, function() {
+      $(this).fadeTo(1000, 0.7);
+    });
+  });
+
+  $('#img3').click(function() {
+    $(this).fadeToggle(1000, function() {
+      $(this).fadeToggle(500);
+    });
+  });
+</script>
+</body>
+</html>

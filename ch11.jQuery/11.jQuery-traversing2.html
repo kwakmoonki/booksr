@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Traversing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-5">
+      <div class="card">
+        <img src="https://dummyimage.com/600x400/000/fff" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Card UI 설명</p>
+          <a href="#" class="btn btn-primary">.parent()</a>
+          <a href="#" class="btn btn-success">.parents()</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="card">
+        <img src="https://dummyimage.com/600x400/999/fff" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Card UI 설명</p>
+          <a href="#" class="btn btn-warning">.siblings()</a>
+          <a href="#" class="btn btn-danger">.is()</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $('.btn-primary').click(function (event) {
+    $(this).parent().prev().attr('src', 'https://dummyimage.com/600x400/369/fff');
+    event.preventDefault();
+  });
+
+  $('.btn-success').click(function() {
+    $(this).parents('.card').find('h5').css('color', 'magenta');
+    return false;
+  });
+
+  $('.btn-warning').click(function() {
+    $(this).siblings('.card-text').addClass('bg-warning');
+    return false;
+  });
+
+  $('.btn-danger').click(function() {
+    if ($(this).is(':contains("is")')) {
+      $(this).prev().prev().prev().addClass('bg-danger');
+    }
+    return false;
+  });
+</script>
+</body>
+</html>

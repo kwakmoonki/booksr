@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Event::Mouse</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <img src="https://dummyimage.com/600x400/000/fff" class="img-fluid" alt="...">
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  // $('img').hover(handlerIn, handlerOut);
+  // $('img').hover(function(){}, function(){});
+  $('img').hover(function() {
+    console.log('마우스 들어옴');
+  }, function() {
+    console.log('마우스 나감');
+  });
+
+  /*
+  // $('img').mouseenter(handlerIn).mouseleave(handlerOut);
+  // $('img').mouseenter(function(){}).mouseleave(function(){});
+  $('img').mouseenter(function() {
+    console.log('마우스 들어옴2');
+  }).mouseleave(function() {
+    console.log('마우스 나감2');
+  });
+  */
+</script>
+</body>
+</html>

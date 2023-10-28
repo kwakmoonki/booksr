@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery::Selectors</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="btn-group my-3" role="group">
+          <button type="button" class="btn btn-primary">:first</button>
+          <button type="button" class="btn btn-success">:last</button>
+          <button type="button" class="btn btn-warning">:even</button>
+          <button type="button" class="btn btn-danger">:odd</button>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $('.btn-primary').click(function() {
+      $('li.list-group-item').removeClass('active');
+
+      // $('li.list-group-item:first').addClass('active');
+      $('li.list-group-item').first().addClass('active');
+    });
+
+    $('.btn-success').click(function() {
+      $('li.list-group-item').removeClass('active');
+
+      // $('li.list-group-item:last').addClass('active');
+      $('li.list-group-item').last().addClass('active');
+    });
+
+    $('.btn-warning').click(function() {
+      $('li.list-group-item').removeClass('active');
+
+      // $('li.list-group-item:even').addClass('active');
+      $('li.list-group-item').even().addClass('active');
+    });
+
+    $('.btn-danger').click(function() {
+      $('li.list-group-item').removeClass('active');
+
+      // $('li.list-group-item:odd').addClass('active');
+      $('li.list-group-item').odd().addClass('active');
+    });
+  </script>
+</body>
+</html>

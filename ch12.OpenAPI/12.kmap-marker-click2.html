@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오 지도</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[JavaScript 키]"></script>
+<script>
+  const container = document.getElementById('map');
+  const options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  };
+
+  const map = new kakao.maps.Map(container, options);
+
+  let positions = [
+    {
+      content: '카카오',
+      latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+    },
+    {
+      content: '생태연못',
+      latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+    },
+    {
+      content: '텃밭',
+      latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+    },
+    {
+      content: '근린공원',
+      latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+    }
+  ];
+
+  for (let position of positions) {
+    let marker = new kakao.maps.Marker({
+      map: map,
+      position: position.latlng
+    });
+
+    let infowindow = new kakao.maps.InfoWindow({
+      content: position.content
+    });
+
+    kakao.maps.event.addListener(marker, 'mouseover', function() {
+      infowindow.open(map, marker);
+    });
+
+    kakao.maps.event.addListener(marker, 'mouseout', function() {
+      infowindow.close();
+    });
+  }
+</script>
+</body>
+</html>
