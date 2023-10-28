@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수(function)</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="input-group mb-3">
+      <input type="text" name="sum1" class="form-control" placeholder="결과1">
+      <input type="text" name="sum2" class="form-control" placeholder="결과2">
+    </div>
+  </div>
+
+  <script>
+    // 함수 정의 (function definition)
+    // 함수 선언 (function declaration)
+    function plusOperation1(a, b) {
+      return a + b;
+    }
+
+    let sum1 = plusOperation1(3, 4);
+    let sumText1 = '계산 결과는 ' + sum1 + ' 입니다.';
+
+    document.querySelector('input[name="sum1"]').value = sumText1;
+
+    //---------------------------
+
+    // 함수 표현식 (function expression)
+    let plusOperation2 = function (x, y) {
+      return x + y;
+    }
+      
+    let sum2 = plusOperation2(5, 6);
+    let sumText2 = '계산 결과는 ' + sum2 + ' 입니다.';
+
+    document.querySelector('input[name="sum2"]').value = sumText2;
+  </script>
+</body>
+</html>

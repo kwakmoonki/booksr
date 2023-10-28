@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onchange</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <form>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">과목선택</label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label><input class="form-check-input" type="radio" name="subject" value="html">HTML</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="radio" name="subject" value="css">CSS</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="radio" name="subject" value="javascript">자바스크립트</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">휴가지</label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="holiday" value="paris">파리</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="holiday" value="sydney">시드니</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="holiday" value="singapore">싱가포르</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  const radios = document.querySelectorAll('[name="subject"]');
+  for (let radio of radios) {
+    radio.onchange = function () {
+      console.log(radio);
+      console.log(radio.value);
+    }
+  }
+
+  const checkboxes = document.querySelectorAll('[name="holiday"]');
+  for (let checkbox of checkboxes) {
+    checkbox.onchange = () => {
+      console.log(checkbox);
+      console.log(checkbox.checked, checkbox.value);
+    }
+  }
+</script>
+</body>
+</html>

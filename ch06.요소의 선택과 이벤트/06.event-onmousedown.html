@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onmousedown</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: lightcoral;
+      cursor: pointer;
+
+      transition-duration: 1.5s;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script>
+    const box = document.querySelector('#box');
+
+    box.onmousedown = function(event) {
+      console.log(event);
+      this.style.width = '200px';
+      this.style.height = '200px';
+      this.style.backgroundColor = 'lightgreen';
+    }
+
+    box.onmouseup = (evt) => {
+      console.log(evt);
+      box.style.width = '100px';
+      box.style.height = '100px';
+      box.style.backgroundColor = 'lightcoral';
+    }
+  </script>
+</body>
+</html>

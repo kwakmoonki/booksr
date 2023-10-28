@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이밍 이벤트::setInterval()</title>
+  <style>
+    #circle {
+      width: 100px;
+      height: 100px;
+      background-color: lightcoral;
+      border-radius: 50%;
+      cursor: pointer;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<div id="circle"></div>
+
+<script>
+  let move = 0;
+  document.querySelector('#circle').onclick = function() {
+    const that = this;
+    setInterval(function() {
+      move += 20;
+      that.style.left = move + 'px';
+    }, 250);
+  }
+</script>
+</body>
+</html>

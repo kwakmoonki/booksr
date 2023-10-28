@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반복구조(iteration)::for-of</title>
+</head>
+<body>
+  <script>
+    let actors = '홍길동일지매임꺽정';
+    let name = '';
+
+    for (let x of actors) {
+      console.log('x =', x);
+      name += x; // name = name + x;
+      if (name.length == 3) {
+        console.log('name =', name);
+        name = '';
+      }
+    }
+  </script>
+</body>
+</html>

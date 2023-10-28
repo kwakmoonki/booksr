@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자(selectors) 의사 클래스와 의사 요소</title>
+  <style>
+    /* 의사 클래스(pseudo-class) */
+    li:first-child {
+      background-color: lightcoral;
+    }
+
+    .item:hover {
+      cursor: pointer;
+      background-color: lightgreen;
+    }
+
+    /* 의사 요소(pseudo-element) */
+    li:first-child::first-letter {
+      font-size: 200%;
+      color: #ff0000;
+    }
+
+    .item::after {
+      content: " - 중요함!";
+      color: magenta;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>목록#1</li>
+    <li>목록#2</li>
+    <li class="item">목록#3</li>
+  </ul>
+</body>
+</html>

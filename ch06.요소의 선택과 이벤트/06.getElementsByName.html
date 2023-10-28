@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getElementsByName()</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="subject" id="subject1" value="html">
+    <label class="form-check-label" for="subject1">HTML</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="subject" id="subject2" value="css">
+    <label class="form-check-label" for="subject2">CSS</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="subject" id="subject3" value="javascript">
+    <label class="form-check-label" for="subject3">자바스크립트</label>
+  </div>
+</div>
+
+<script>
+  const radios = document.getElementsByName('subject');
+
+  console.log(radios);
+  console.log(radios.length);
+
+  let i = 0;
+  for (let radio of radios) {
+    setTimeout(function() {
+      radio.checked = true;
+    }, 1000 * i);
+    i++;
+  }
+</script>
+</body>
+</html>

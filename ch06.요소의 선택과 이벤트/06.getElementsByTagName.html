@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getElementsByTagName()</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">첫 번째</li>
+    <li class="list-group-item">두 번째</li>
+    <li class="list-group-item">세 번째</li>
+    <li class="list-group-item">네 번째</li>
+    <li class="list-group-item">다섯 번째</li>
+  </ul>
+</div>
+
+<script>
+  const lists = document.getElementsByTagName('li');
+
+  console.log(lists);
+  console.log(lists.length);
+  console.log(typeof lists);
+
+  function formatHex(hex) {
+    return (hex.length == 1) ? '0' + hex : hex;
+  }
+
+  for (let list of lists) {
+    let rColor = Math.floor(Math.random() * 255).toString(16);
+    let gColor = Math.floor(Math.random() * 255).toString(16);
+    let bColor = Math.floor(Math.random() * 255).toString(16);
+
+    let color = formatHex(rColor) + formatHex(gColor) + formatHex(bColor);
+
+    list.style.backgroundColor = '#' + color;
+  }
+</script>
+</body>
+</html>

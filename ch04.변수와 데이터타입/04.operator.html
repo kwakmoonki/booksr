@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>operator</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>연산자</th>
+          <th>연산식</th>
+          <th>결과</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>누승법(**)</th>
+          <td>5 ** 3</td>
+          <td id="exp"></td>
+        </tr>
+        <tr>
+          <th>나머지(%)</th>
+          <td>5 % 3</td>
+          <td id="mod"></td>
+        </tr>
+        <tr>
+          <th>증가(++)</th>
+          <td>5++</td>
+          <td id="inc"></td>
+        </tr>
+        <tr>
+          <th>감소(--)</th>
+          <td>5--</td>
+          <td id="dec"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    document.querySelector('#exp').innerHTML = 5 ** 3;
+    document.querySelector('#mod').innerHTML = 5 % 3;
+
+    var x = 5, y = 5;
+    x++;
+    y--;
+    var inc = x;
+    var dec = y;
+    document.querySelector('#inc').innerHTML = inc;
+    document.querySelector('#dec').innerHTML = dec;
+  </script>
+</body>
+</html>

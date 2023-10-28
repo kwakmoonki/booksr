@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반복구조(iteration)::continue와 break</title>
+</head>
+<body>
+  <script>
+    let sum = 0;
+
+    for (let num = 0; num < 10; num++) {
+      if (num === 4) continue;
+      if (num === 8) break;
+
+      sum += num;
+      console.log(num, sum);
+      num++;
+    }
+  </script>
+</body>
+</html>

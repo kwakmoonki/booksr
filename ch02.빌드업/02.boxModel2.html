@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박스모델(Box Model) box-sizing</title>
+  <style>
+    #contentBox, #borderBox {
+      width: 200px;
+      height: 100px;
+      margin: 10px 0;
+      padding: 0 50px;
+      background-color: lightcoral;
+    }
+    #borderBox {
+      background-color: lightgreen;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="contentBox">W3C Box Model</div>
+  <div id="borderBox">IE Box Model</div>
+</body>
+</html>

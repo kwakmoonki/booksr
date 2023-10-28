@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수::let</title>
+</head>
+<body>
+  <script>
+    // 스코프(범위) 문제
+    let name = '홍길동';
+    let age = 22;
+    {
+      let age = 33;
+
+      console.log('name* ' + name); // 홍길동
+      console.log('age* ' + age); // 33
+    }
+    console.log('name** ' + name); // 홍길동
+    console.log('age** ' + age); // 22
+  </script>
+</body>
+</html>

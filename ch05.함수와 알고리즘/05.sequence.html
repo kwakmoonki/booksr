@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>순차적구조(sequence)</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+  drawSquare();
+
+  function drawSquare() {
+    let width = Math.random() * 50;
+    width = Math.round(width); // 0 ~ 50
+    width += 50; // 50 ~ 100
+
+    let height = Math.random() * 50;
+    height = Math.ceil(height); // 0 ~ 50
+    height += 100; // 100 ~ 150
+
+    let color = Math.random() * 16777216;
+    color = Math.floor(color); // 0 ~ 16777215
+    color = color.toString(16); // 000000 ~ ffffff
+
+    document.getElementById('box').style.width = width + 'px';
+    document.getElementById('box').style.height = height + 'px';
+    document.getElementById('box').style.background = '#' + color;
+
+    console.log(width + 'px', height + 'px', '#' + color);
+  }
+
+  document.querySelector('#box').onclick = drawSquare;
+
+  // const color = 16777215;
+  // console.log(color.toString(16)); // ffffff
+
+  // console.log((16777215).toString(16)); // ffffff
+</script>
+</body>
+</html>

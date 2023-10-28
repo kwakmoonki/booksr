@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>querySelector()</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <ul class="list-group">
+      <li class="list-group-item">첫 번째</li>
+      <li class="list-group-item">두 번째</li>
+      <li class="list-group-item">세 번째</li>
+      <li class="list-group-item">네 번째</li>
+      <li class="list-group-item">다섯 번째</li>
+    </ul>
+  </div>
+  
+  <script>
+    const list1 = document.querySelector('.list-group-item');
+    console.log(list1);
+    list1.style.backgroundColor = 'lightblue';
+
+    const list2 = document.querySelector('li:nth-of-type(3)');
+    console.log(list2);
+    list2.style.backgroundColor = 'lightcoral';
+
+    // 오류 발생
+    const list3 = document.querySelector('li:nth-of-type(6)');
+    console.log(list3);
+    list3.style.backgroundColor = 'lightgreen';
+  </script>
+</body>
+</html>

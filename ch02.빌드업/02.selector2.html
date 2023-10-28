@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자(selectors) attribute</title>
+  <style>
+    [name] {
+      width: 200px;
+      padding: 5px 10px;
+      border: 1px solid lightcoral;
+    }
+
+    [name=passwd] {
+      border: 1px solid lightgrey;
+    }
+
+    input[name=passwd] {
+      border: 2px solid lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" name="userId" placeholder="아이디 입력">
+  <hr>
+  <input type="text" name="passwd" placeholder="비밀번호 입력">
+</body>
+</html>

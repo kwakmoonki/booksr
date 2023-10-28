@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포지셔닝(positioning)</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #333;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    div.relative {
+      background-color: lightcoral;
+      position: relative;
+      top: 50px;
+      left: 50px;
+    }
+
+    div.absolute {
+      background-color: lightgreen;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="relative"></div>
+  <div class="absolute"></div>
+  <div class="relative"></div>
+</body>
+</html>

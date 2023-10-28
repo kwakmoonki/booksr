@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>순차적구조(sequence)</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+  // 함수 표현식
+  const drawSquare = function () {
+    let width = Math.round(Math.random() * 50) + 50;
+    let height = Math.ceil(Math.random() * 50) + 100;
+    let color = Math.floor(Math.random() * 16777216).toString(16);
+
+    let css = 'width:' + width + 'px;height:' + height + 'px;background:#' + color + ';';
+    document.getElementById('box').style.cssText = css;
+
+    console.log(css);
+  };
+
+  drawSquare(); // 함수 호출
+
+  // #box 영역을 클릭시 마다 drawSquare() 호출
+  document.querySelector('#box').onclick = drawSquare;
+
+  // console.log((0).toString(16)); // 0
+  // console.log((15).toString(16)); // f
+  // console.log((16).toString(16)); // 10
+</script>
+</body>
+</html>

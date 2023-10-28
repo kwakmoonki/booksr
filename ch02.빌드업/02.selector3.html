@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자(selectors) 부모-자식 관계와 형제-자매 관계</title>
+  <style>
+    #container>h3 {
+      background-color: lightcoral;
+    }
+
+    #container li {
+      margin: 10px 0;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h3>목록의 제목</h3>
+    <ol class="mylist">
+      <li>첫번째 목록</li>
+      <li>두번째 목록</li>
+      <li>세번째 목록</li>
+    </ol>
+  </div>
+</body>
+</html>

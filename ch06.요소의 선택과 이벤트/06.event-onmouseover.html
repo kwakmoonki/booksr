@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onmouseover</title>
+  <style>
+    #weather, #js_weather {
+      width: 60px;
+      height: 60px;
+      background: url(weather.png) no-repeat;
+      cursor: pointer;
+    }
+
+    #weather:hover {
+      background-position: -60px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="weather"></div>
+  <hr>
+  <div id="js_weather"></div>
+
+  <script>
+    const weatherBox = document.getElementById('js_weather');
+
+    weatherBox.onmouseover = function() {
+      this.style.backgroundPosition = '0 -60px';
+    }
+
+    weatherBox.onmouseout = function() {
+      weatherBox.style.backgroundPosition = '0 0';
+    }
+  </script>
+</body>
+</html>

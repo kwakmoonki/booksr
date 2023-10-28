@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onclick</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary" onclick="alert('자바스크립트 코드를 직접 입력!')">인라인 JS 코드</button>
+    <button type="button" class="btn btn-success" onclick="myFunction();">인라인 함수 호출</button>
+    <button type="button" class="btn btn-danger">느슨한 연결1</button>
+    <button type="button" class="btn btn-warning">느슨한 연결2</button>
+  </div>
+  <!--https://getbootstrap.com/docs/5.3/components/button-group/#basic-example-->
+</div>
+
+<script>
+  function myFunction() {
+    alert('HTML 요소의 이벤트 속성에서 myFunction() 호출');
+  }
+
+  // 이벤트 대상 + 이벤트 트리거 + 이벤트 핸들러
+  document.querySelector('.btn-danger').onclick = function() {
+    alert('이벤트 핸들러');
+  }
+
+  // 이벤트 대상 + 이벤트 트리거 + 이벤트 리스너
+  document.querySelector('.btn-warning').addEventListener('click', function() {
+    alert('이벤트 리스너');
+  });
+</script>
+</body>
+</html>

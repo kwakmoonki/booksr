@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수(function)</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">helloWorld()</button>
+      <button type="button" class="btn btn-danger">helloWorld()</button>
+    </div>
+  </div>
+
+  <script>
+    // 함수 정의 (function definition)
+    // 함수 선언 (function declaration)
+    function helloWorld() {
+      alert('hello world!');
+    }
+
+    // 함수 호출 (function call)
+    helloWorld();
+
+    document.querySelector('.btn-primary').onclick = function() {
+      helloWorld();
+    }
+
+    document.querySelector('.btn-danger').onclick = helloWorld;
+  </script>
+</body>
+</html>

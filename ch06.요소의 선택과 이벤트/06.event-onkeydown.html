@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onkeydown</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="query" placeholder="검색어 입력 후 버튼 클릭">
+      <button type="button" class="btn btn-primary">검색</button>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">검색</span>
+      <input type="search" class="form-control" name="keyword" id="keyword" placeholder="키워드 입력 후 엔터!">
+    </div>
+  </div>
+
+  <script>
+    function getElement(param) {
+      return document.querySelector(param);
+    }
+
+    getElement('.btn').onclick = function() {
+      const query = getElement('input[name="query"]').value;
+
+      if (query.length > 1) {
+        alert(query + ' 검색중 =3=3=3');
+      } else {
+        alert('검색어는 2글자 이상 입력해주세요.');
+        getElement('input[name="query"]').focus();
+      }
+    }
+
+    getElement('#keyword').addEventListener('keydown', function(evt) {
+      console.log(evt);
+      console.log(evt.keyCode);
+
+      if (evt.keyCode == 13 && this.value.length > 1) {
+        alert(this.value + ' 검색중 =3=3=3');
+      }
+    });
+
+    /*
+    getElement('#keyword').addEventListener('search', function(evt) {
+      console.log(evt);
+
+      if (this.value.length > 1) {
+        alert(this.value + ' 검색중 =3=3=3');
+      }
+    });
+    */
+  </script>
+</body>
+</html>

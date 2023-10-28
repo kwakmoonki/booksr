@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수(function)</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="input-group mb-3">
+      <input type="text" name="sum1" class="form-control" placeholder="결과1">
+      <input type="text" name="sum2" class="form-control" placeholder="결과2">
+      <input type="text" name="sum3" class="form-control" placeholder="결과3">
+    </div>
+  </div>
+  <script>
+    {
+      function showResult(sum) {
+        var msg = '결과는 ' + sum + ' 입니다.';
+        document.querySelector('input[name="sum1"]').value = msg;
+      }
+
+      function plusOperation(x, y) {
+        return x + y;
+      }
+
+      const result = plusOperation(2, 3);
+
+      showResult(result);
+    }
+
+    {
+      function showResult(sum) {
+        var msg = '결과는 ' + sum + ' 입니다.';
+        document.querySelector('input[name="sum2"]').value = msg;
+      }
+
+      function plusOperation(x, y) {
+        showResult(x + y);
+      }
+
+      plusOperation(4, 5);
+    }
+
+    {
+      function showResult(sum) {
+        var msg = '결과는 ' + sum + ' 입니다.';
+        document.querySelector('input[name="sum3"]').value = msg;
+      }
+
+      function plusOperation(x, y, callback) {
+        callback(x + y);
+      }
+
+      plusOperation(6, 7, showResult);
+    }
+  </script>
+</body>
+</html>

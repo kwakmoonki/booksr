@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수(function)</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">일반 함수</button>
+      <button type="button" class="btn btn-danger">화살표 함수</button>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      console.log(1, this.toString());
+    }
+
+    document.querySelector('.btn-primary').onclick = function() {
+      console.log(2, this.toString());
+    }
+
+    document.querySelector('.btn-danger').onclick = () => {
+      console.log(3, this.toString());
+    }
+  </script>
+</body>
+</html>

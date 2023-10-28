@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택구조(selection) 알고리즘</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="age" placeholder="나이를 입력하세요">
+      <button type="button" class="btn btn-outline-secondary" onclick="checkAge()">실행</button>
+    </div>
+    <div id="msg"></div>
+  </div>
+  <script>
+    function checkAge() {
+      let age = document.getElementById('age').value;
+      let passFail = (age > 18) ? '관람 가능' : '관람 불가';
+
+      setMessage(passFail);
+    }
+
+    function setMessage(msg) {
+      if (msg == '관람 가능') {
+        message = '<div class="alert alert-success" role="alert">' + msg + '</div>';
+      } else {
+        message = '<div class="alert alert-danger" role="alert">' + msg + '</div>';
+      }
+
+      document.getElementById('msg').innerHTML = message;
+    } 
+  </script>
+</body>
+</html>

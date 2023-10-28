@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onload</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="ratio ratio-21x9">
+        <iframe src="https://www.youtube.com/embed/UxVykvgm_8U" title="수출강국 대한민국" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col">
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/V46M1IqMF1M?autoplay=1&mute=1" title="디지털 뉴딜로 통하는 새로운 세상" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col">
+      <div class="ratio ratio-4x3">
+        <iframe id="player" src="https://www.youtube.com/embed/yNQOgzZ1Sw0?enablejsapi=1" title="탄소중립"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--https://getbootstrap.com/docs/5.3/helpers/ratio/-->
+<!--대한민국 정부 https://www.youtube.com/c/hipolicy-->
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  const videos = document.querySelectorAll('iframe');
+
+  videos[0].onload = function () {
+    console.log(1);
+  }
+
+  videos[1].onload = function () {
+    console.log(2);
+  }
+
+  videos[2].addEventListener('load', function () {
+    console.log(3);
+  });
+
+
+  function onYouTubeIframeAPIReady() {
+    let player = new YT.Player('player', {
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    event.target.setVolume(0);
+    event.target.playVideo();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택구조(selection) 알고리즘</title>
+</head>
+<body>
+  <script>
+    const score = parseInt(prompt('점수를 입력하세요', 90));
+
+    if (score != null) {
+      switch (true) {
+        case (score >= 90):
+          alert('A학점입니다!^^');
+          break;
+        case (score >= 80):
+          alert('B학점입니다!^^;');
+          break;
+        case (score >= 70):
+          alert('C학점입니다.--');
+          break;
+        default:
+          alert('F학점입니다.ㅠㅠ');
+      }
+    }
+  </script>
+</body>
+</html>

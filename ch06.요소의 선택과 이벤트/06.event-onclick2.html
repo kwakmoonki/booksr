@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onclick</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-danger">느슨한 연결1</button>
+    <button type="button" class="btn btn-warning">느슨한 연결2</button>
+  </div>
+</div>
+
+<script>
+  // 이벤트 대상 + 이벤트 트리거 + 이벤트 핸들러
+  document.querySelector('.btn-danger').onclick = function() {
+    console.log('이벤트 핸들러#1');
+  }
+
+  document.querySelector('.btn-danger').onclick = function() {
+    console.log('이벤트 핸들러#2');
+  }
+
+  // 이벤트 대상 + 이벤트 트리거 + 이벤트 리스너
+  document.querySelector('.btn-warning').addEventListener('click', function() {
+    console.log('이벤트 리스너#1');
+  });
+
+  document.querySelector('.btn-warning').addEventListener('click', function() {
+    console.log('이벤트 리스너#2');
+  });
+</script>
+</body>
+</html>

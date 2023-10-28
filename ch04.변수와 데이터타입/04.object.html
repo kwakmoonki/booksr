@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체(Object)</title>
+</head>
+<body>
+  <script>
+    const myCar = {
+      type: '전기차',
+      doors: 5,
+      color: 'white',
+      brand: '슈퍼카',
+      start: function() {
+        console.log('차량 출발');
+      },
+      stop: function(msg) {
+        console.log(msg + ' 정지');
+      }
+    }
+
+    console.log(myCar['doors']);
+    console.log(myCar.color);
+    myCar.start();
+    myCar.stop('우리차');
+  </script>
+</body>
+</html>

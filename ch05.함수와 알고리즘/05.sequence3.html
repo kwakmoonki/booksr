@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>순차적구조(sequence)</title>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script>
+    // HEX 자리수 맞춤
+    function formatHex(hex) {
+      return hex.length == 1 ? '0' + hex : hex;
+    }
+
+    // 화살표 함수 표현식
+    const drawSquare = () => {
+      let width = Math.round(Math.random() * 50) + 50;
+      let height = Math.ceil(Math.random() * 50) + 100;
+      let rColor = Math.floor(Math.random() * 255).toString(16); // 00 ~ ff
+      let gColor = Math.floor(Math.random() * 255).toString(16); // 00 ~ ff
+      let bColor = Math.floor(Math.random() * 255).toString(16); // 00 ~ ff
+
+      let color = formatHex(rColor) + formatHex(gColor) + formatHex(bColor);
+
+      let css = 'width:' + width + 'px;height:' + height + 'px;background:#' + color + ';';
+      document.getElementById('box').style.cssText = css;
+
+      console.log(css);
+    };
+
+    drawSquare(); // 함수 호출
+
+    // #box 영역을 클릭시 마다 drawSquare() 호출
+    document.querySelector('#box').onclick = drawSquare;
+  </script>
+</body>
+</html>
