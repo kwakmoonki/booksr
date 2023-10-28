@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hook::useState</title>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+<script type="text/babel">
+  class ButtonCount extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { count: 0 };
+    }
+
+    render() {
+      return (
+        <div>
+          <p>버튼을 {this.state.count}번 클릭했습니다.</p>
+          <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+            클릭하세요
+          </button>
+        </div>
+      );
+    }
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<ButtonCount />);
+</script>
+
+</body>
+</html>

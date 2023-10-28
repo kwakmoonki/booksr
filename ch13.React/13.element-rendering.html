@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>엘리먼트 렌더링(element rendering)</title>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+<script type="text/babel">
+  /*
+  const element = <h1>Hello, world!</h1>;
+
+  const element = (
+    <div>
+      <h1>Hello!</h1>
+      <h2>Good to see you here.</h2>
+    </div>
+  );
+
+  const name = '홍길동';
+  const element = <h1>Hello, {name}</h1>;
+
+  const element = <a href="https://reactjs.org">링크</a>;
+  const element = <img src={user.avatarUrl}></img>;
+
+  const element = <img src={user.avatarUrl} />;
+  */
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+
+  function formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+  }
+
+  const user = {
+    firstName: '길동',
+    lastName: '홍'
+  };
+
+  const element = (
+    <h1>
+      Hello, {formatName(user)}!
+    </h1>
+  );
+
+  root.render(element);
+</script>
+</body>
+</html>
