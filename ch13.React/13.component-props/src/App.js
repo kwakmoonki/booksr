@@ -12,7 +12,9 @@ const comment = {
 
 function App() {
   return (
-    <Comment date={comment.date} text={comment.text} author={comment.author} />
+    <Comment date={comment.date} 
+        text={comment.text} 
+        author={comment.author} />
   );
 }
 
