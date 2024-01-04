@@ -16,8 +16,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Button onClick={this.handleClick} 
-          isToggleOn={this.state.isToggleOn} />
+      <Button 
+          onClick={this.handleClick} 
+          isToggleOn={this.state.isToggleOn} 
+      />
     );
   }
 }
